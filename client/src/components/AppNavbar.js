@@ -14,7 +14,7 @@ class AppNavbar extends Component {
 
     state = {
 
-        isOpen = false
+        isOpen: false
 
     }
 
@@ -30,35 +30,39 @@ class AppNavbar extends Component {
 
     render(){
 
-        <div>
+        return (
 
-            <Navbar color="dark" dark expand="sm" className="mb-5">
+            <div>
 
-                <Container>
+                <Navbar color="dark" dark expand="sm" className="mb-5">
 
-                    <NavbarBrand href="/">ShoppingList</NavbarBrand>
+                    <Container>
 
-                    <NavbarToggler onClick={this.toggle} />
+                        <NavbarBrand href="/">ShoppingList</NavbarBrand>
 
-                    <Collapse isOpen={this.state.isOpen} navbar>
+                        <NavbarToggler onClick={this.toggle} />
 
-                        <Nav className="ml-auto" navbar>
+                        <Collapse isOpen={this.state.isOpen} navbar>
 
-                            <NavItem>
+                            <Nav className="ml-auto" navbar>
 
-                                <NavLink href="https://github.com/dstearle/mern-crash-course">Github</NavLink>
+                                <NavItem>
 
-                            </NavItem>
+                                    <NavLink href="https://github.com/dstearle/mern-crash-course">Github</NavLink>
 
-                        </Nav>
+                                </NavItem>
 
-                    </Collapse>
+                            </Nav>
 
-                </Container>
+                        </Collapse>
 
-            </Navbar>
+                    </Container>
 
-        </div>
+                </Navbar>
+
+            </div>
+
+        );
 
     }
 
