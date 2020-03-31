@@ -6,7 +6,7 @@ import {
     Container
 } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import uuid from 'uuid';
+import uuidv1 from 'uuid/v1';
 
 class ShoppingList extends Component {
 
@@ -14,10 +14,10 @@ class ShoppingList extends Component {
 
         items: [
 
-            {id: uuid(), name: 'Eggs'},
-            {id: uuid(), name: 'Milk'},
-            {id: uuid(), name: 'Steak'},
-            {id: uuid(), name: 'Water'},
+            {id: uuidv1, name: 'Eggs'},
+            {id: uuidv1, name: 'Milk'},
+            {id: uuidv1, name: 'Steak'},
+            {id: uuidv1, name: 'Water'},
 
         ]
 
@@ -38,7 +38,7 @@ class ShoppingList extends Component {
                         const name = prompt('Enter Item');
                         if(name) {
                             this.setState(state => ({
-                                items: [...state.items, { id: uuid(), name }]
+                                items: [...state.items, { id: uuidv1, name }]
                             }));
                         }
                     }}
