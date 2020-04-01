@@ -6,7 +6,7 @@ import {
     Container
 } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import uuidv1 from 'uuid/v1';
+import {v4 as uuidv4} from 'uuid';
 
 class ShoppingList extends Component {
 
@@ -14,10 +14,10 @@ class ShoppingList extends Component {
 
         items: [
 
-            {id: uuidv1, name: 'Eggs'},
-            {id: uuidv1, name: 'Milk'},
-            {id: uuidv1, name: 'Steak'},
-            {id: uuidv1, name: 'Water'},
+            {id: uuidv4(), name: 'Eggs'},
+            {id: uuidv4(), name: 'Milk'},
+            {id: uuidv4(), name: 'Steak'},
+            {id: uuidv4(), name: 'Water'},
 
         ]
 
@@ -38,7 +38,7 @@ class ShoppingList extends Component {
                         const name = prompt('Enter Item');
                         if(name) {
                             this.setState(state => ({
-                                items: [...state.items, { id: uuidv1, name }]
+                                items: [...state.items, { id: uuidv4(), name }]
                             }));
                         }
                     }}
@@ -51,19 +51,34 @@ class ShoppingList extends Component {
 
                     <TransitionGroup className="shopping-list">
 
-                        {items.map(({ id, name }) => (
+                            {items.map(({ id, name }) => (
 
-                            <CSSTransition key={id} timeout={500} classNames="fade">
+                                <CSSTransition key={id} timeout={500} classNames="fade">
 
-                                <ListGroupItem>
+                                    <ListGroupItem>
 
-                                    {name}
+                                        <Button
+                                            className="remove-btn"
+                                            color="danger"
+                                            size="sm"
+                                            onClick={() => {
+                                                this.setState(state => ({
+                                                    items: state.items.filter(item => item.id !== id)
+                                                }));
+                                            }}
+                                        >
+                                            
+                                            &times;
+                                            
+                                        </Button>
 
-                                </ListGroupItem>
+                                        {name}
 
-                            </CSSTransition>
+                                    </ListGroupItem>
 
-                        ))}
+                                </CSSTransition>
+
+                            ))}
 
                     </TransitionGroup>
 
