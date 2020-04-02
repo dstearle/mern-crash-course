@@ -18,10 +18,22 @@ export default function(state = initialState, action) {
 
     switch(action.type) {
 
+        // Getters
         case GET_ITEMS:
 
-            return { ...state }
+            return { ...state };
+
+        // Delete
+        case DELETE_ITEM:
+
+            return { 
+                
+                ...state,
+                items: state.items.filter(item => item.id !== action.payload)
+            
+            };
         
+        // Default state
         default: return state;
 
     }
