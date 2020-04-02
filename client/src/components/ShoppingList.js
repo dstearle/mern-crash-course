@@ -6,9 +6,9 @@ import {
     Container
 } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import {v4 as uuidv4} from 'uuid';
+// import {v4 as uuidv4} from 'uuid';
 import { connect } from 'react-redux';
-import { getItems } from '../actions/itemActions.js';
+import { getItems, deleteItem } from '../actions/itemActions.js';
 import PropTypes from 'prop-types';
 
 class ShoppingList extends Component {
@@ -34,6 +34,14 @@ class ShoppingList extends Component {
         
     }
 
+    // Delete method
+    onDeleteClick = (id) => {
+
+        this.props.deleteItem(id);
+
+    }
+
+    // Render component
     render() {
 
         const{ items } = this.props.item;
@@ -42,7 +50,7 @@ class ShoppingList extends Component {
 
             <Container>
 
-                <Button
+                {/* <Button
                     color="dark"
                     style={{marginBottom: '2rem'}}
                     onClick={() =>{
@@ -56,7 +64,7 @@ class ShoppingList extends Component {
                 >
                     Add Item
                     
-                </Button>
+                </Button> */}
 
                 <ListGroup>
 
@@ -72,11 +80,7 @@ class ShoppingList extends Component {
                                             className="remove-btn"
                                             color="danger"
                                             size="sm"
-                                            onClick={() => {
-                                                this.setState(state => ({
-                                                    items: state.items.filter(item => item.id !== id)
-                                                }));
-                                            }}
+                                            onClick={this.onDeleteClick.bind(this, id)}
                                         >
                                             
                                             &times;
@@ -117,4 +121,4 @@ const mapStateToProps = (state) => ({
     
 });
 
-export default connect(mapStateToProps, { getItems }) (ShoppingList);
+export default connect(mapStateToProps, { getItems, deleteItem }) (ShoppingList);
