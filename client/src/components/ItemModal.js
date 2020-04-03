@@ -34,6 +34,13 @@ class ItemModal extends Component {
 
     }
 
+    // 
+    onChange = (e) => {
+
+        this.setState({ [e.target.name]: e.target.value });
+
+    }
+
     // Render Component
     render() {
 
