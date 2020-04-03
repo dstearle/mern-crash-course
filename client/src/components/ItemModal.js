@@ -29,8 +29,43 @@ class ItemModal extends Component {
         this.setState({
 
             modal: !this.state.modal
-            
+
         });
+
+    }
+
+    // Render Component
+    render() {
+
+        return(
+
+            <div>
+
+                <Button
+                    color="dark"
+                    style={{marginBottom: '2rem'}}
+                    onClick={this.toggle}
+                >
+                    Add Item
+                    
+                </Button>
+
+                <Modal
+                    isOpen={this.state.modal}
+                    toggle={this.toggle}
+                >
+
+                    <ModalHeader toggle={this.toggle}>Add To Shopping List</ModalHeader>
+
+                    <ModalBody>
+                        
+                    </ModalBody>
+
+                </Modal>
+
+            </div>
+
+        );
 
     }
 
