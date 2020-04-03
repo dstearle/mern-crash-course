@@ -11,7 +11,19 @@ export const getItems = () => {
 
 };
 
-// Delete
+// Add Item
+export const addItem = (item) => {
+
+    return{
+
+        type: ADD_ITEM,
+        payload: item
+
+    };
+
+};
+
+// Delete Item
 export const deleteItem = (id) => {
 
     return{

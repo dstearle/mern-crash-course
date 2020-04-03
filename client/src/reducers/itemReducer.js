@@ -23,7 +23,17 @@ export default function(state = initialState, action) {
 
             return { ...state };
 
-        // Delete
+        // Add Item
+        case ADD_ITEM:
+
+            return { 
+                
+                ...state,
+                items: [action.payload, ...state.items]
+            
+            };
+
+        // Delete Item
         case DELETE_ITEM:
 
             return { 
