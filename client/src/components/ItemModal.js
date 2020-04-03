@@ -58,6 +58,24 @@ class ItemModal extends Component {
                     <ModalHeader toggle={this.toggle}>Add To Shopping List</ModalHeader>
 
                     <ModalBody>
+
+                        <Form onSubmit={this.onSubmit}>
+
+                            <FormGroup>
+
+                                <Label for="item">Item</Label>
+
+                                <Input
+                                    type="text"
+                                    name="name"
+                                    id="item"
+                                    placeholder="Add shopping item"
+                                    onChange={this.onChange}
+                                />
+
+                            </FormGroup>
+
+                        </Form>
                         
                     </ModalBody>
 
