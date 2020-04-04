@@ -12,7 +12,8 @@ export const getItems = () => dispatch => {
             dispatch({
 
                 type: GET_ITEMS,
-                payload: res.data
+                payload: res.data,
+                loading: false
 
             })
 
