@@ -11,8 +11,8 @@ import {
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import { addItem } from '../actions/itemActions.js';
-import { compose } from 'redux';
-import {v4 as uuidv4} from 'uuid';
+// import { compose } from 'redux';
+// import {v4 as uuidv4} from 'uuid'; // No longer need since mongodb provides id
 
 class ItemModal extends Component {
 
@@ -49,7 +49,7 @@ class ItemModal extends Component {
 
         const newItem = {
 
-            id: uuidv4(),
+            // id: uuidv4(), // removed because mongodb will provide its own id
             name: this.state.name
 
         }
@@ -130,7 +130,7 @@ class ItemModal extends Component {
 const mapStateToProps = state => ({
 
     item: state.item
-    
+
 });
 
 export default connect(mapStateToProps, {addItem})(ItemModal);
