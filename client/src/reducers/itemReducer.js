@@ -26,7 +26,13 @@ export default function(state = initialState, action) {
         // Getters
         case GET_ITEMS:
 
-            return { ...state };
+            return { 
+                
+                ...state,
+                items: action.payload,
+                loading: false
+            
+            };
 
         // Add Item
         case ADD_ITEM:
