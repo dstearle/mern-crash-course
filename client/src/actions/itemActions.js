@@ -17,7 +17,7 @@ export const getItems = () => dispatch => {
 
             })
 
-        )
+        );
 
 };
 
@@ -25,25 +25,35 @@ export const getItems = () => dispatch => {
 export const addItem = (item) => dispatch => {
 
     axios
-    .post('/api/items', item)
-    .then(res => 
-        dispatch({
-            type: ADD_ITEM,
-            payload: res.data
-        })
-    )
+        .post('/api/items', item)
+        .then(res => 
+
+            dispatch({
+
+                type: ADD_ITEM,
+                payload: res.data
+
+            })
+
+        );
 
 };
 
 // Delete Item
-export const deleteItem = (id) => {
+export const deleteItem = (id) => dispatch => {
 
-    return{
+    axios
+        .delete(`/api/items/${id}`)
+        .then(res => 
 
-        type: DELETE_ITEM,
-        payload: id
+            dispatch({
 
-    };
+                type: DELETE_ITEM,
+                payload: id
+
+            })
+
+        );
 
 };
 
